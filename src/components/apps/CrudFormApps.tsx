@@ -12,7 +12,7 @@ interface Props {
 
 export default function CrudFormApps({ table, initialData, onSuccess }: Props) {
   const [formData, setFormData] = useState<any>({
-    nombre_acceso: ''
+    nombre: ''
   });
 
   useEffect(() => {
@@ -34,8 +34,8 @@ export default function CrudFormApps({ table, initialData, onSuccess }: Props) {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (formData.id) {
-        const { nombre_acceso } = formData;
-        const dataToSend = { nombre_acceso };
+        const { nombre } = formData;
+        const dataToSend = { nombre };
         await api.update(table,formData.id, dataToSend);
     } else {
       await api.create(table, formData);
@@ -46,9 +46,9 @@ export default function CrudFormApps({ table, initialData, onSuccess }: Props) {
   return (
     <Box component="form" onSubmit={handleSubmit} sx={{ display: 'flex', gap: 2, flexWrap: 'wrap', mt: 2 }}>
       <TextField
-        name="nombre_acceso"
+        name="nombre"
         type="text"
-        value={formData.nombre_acceso}
+        value={formData.nombre}
         onChange={handleChange}
         fullWidth
       />    

@@ -110,7 +110,7 @@ export default function CrudFormUsers({ table, initialData, onSuccess }: Props) 
         <InputLabel>Estado</InputLabel>
         <Select name="estado_id" value={formData.estado_id} label="Estado" onChange={handleChange}>
             {estados.map((estado: any) => (
-            <MenuItem key={estado.id} value={estado.id}>{estado.nombre_estado}</MenuItem>
+            <MenuItem key={estado.id} value={estado.id}>{estado.nombre}</MenuItem>
             ))}
         </Select>
         </FormControl> : <></>}
