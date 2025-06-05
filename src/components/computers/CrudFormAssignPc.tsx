@@ -42,11 +42,13 @@ export default function CrudFormAssignPc({ table, initialData, onSuccess }: Prop
     fetchOptions();
   }, []);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | { name?: string; value: unknown }>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<{ name?: string; value: unknown }> | any
+  ) => {
     const { name, value } = e.target;
     setFormData((prev: any) => ({
       ...prev,
-      [name!]: value,
+      [name]: value,
     }));
   };
 
@@ -65,15 +67,18 @@ export default function CrudFormAssignPc({ table, initialData, onSuccess }: Prop
 
   return (
     <Box component="form" onSubmit={handleSubmit} sx={{ display: 'flex', gap: 2, flexWrap: 'wrap', mt: 2 }}>
-      <TextField
+      {formData.id ? (
+        <TextField
         name="fecha_entrega"
-        type="date"
+        type="text"
         value={formData.fecha_entrega}
         onChange={handleChange}
         fullWidth
-        required
-      />
-
+        disabled
+        />
+      ): <></>
+      }
+      
       <FormControl fullWidth>
         <InputLabel>Usuario</InputLabel>
         <Select name="usuario_id" value={formData.usuario_id} label="Usuario" onChange={handleChange}>

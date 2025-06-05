@@ -3,10 +3,6 @@ import {
   TextField,
   Button,
   Box,
-  MenuItem,
-  Select,
-  InputLabel,
-  FormControl,
   FormControlLabel,
   Switch,
 } from "@mui/material";

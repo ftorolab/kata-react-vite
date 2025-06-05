@@ -48,7 +48,7 @@ export default function CrudTable({ table, onEdit }: CrudTableProps) {
         <TableBody>
           {rows.map((row) => (
             <TableRow key={row.id}>
-              {Object.values(row).map((value, i) => (
+              {Object.values(row).map((value: any, i) => (
                 <TableCell key={i}>{value}</TableCell>
               ))}
               <TableCell>

@@ -22,12 +22,14 @@ export default function CrudForm({ table, initialData, onSuccess }: Props) {
     }
   }, [initialData]);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | { name?: string; value: unknown }>) => {
-    
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<{ name?: string; value: unknown }> | any
+  ) => {
     const { name, value } = e.target;
     setFormData((prev: any) => ({
       ...prev,
-      [name!]: value,
+      [name]: value,
     }));
   };
 

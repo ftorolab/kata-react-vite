@@ -47,13 +47,13 @@ export default function CrudFormUsers({ table, initialData, onSuccess }: Props) 
     fetchOptions();
   }, []);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | { name?: string; value: unknown }>) => {
-    
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<{ name?: string; value: unknown }> | any
+  ) => {
     const { name, value } = e.target;
-    console.log('name', name)
     setFormData((prev: any) => ({
       ...prev,
-      [name!]: value,
+      [name]: value,
     }));
   };
 

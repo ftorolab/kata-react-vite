@@ -44,13 +44,13 @@ export default function CrudFormAccessApp({ table, initialData, onSuccess }: Pro
     fetchOptions();
   }, []);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | { name?: string; value: unknown }>) => {
-    
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<{ name?: string; value: unknown }> | any
+  ) => {
     const { name, value } = e.target;
-    console.log('name', name)
     setFormData((prev: any) => ({
       ...prev,
-      [name!]: value,
+      [name]: value,
     }));
   };
 
@@ -70,15 +70,16 @@ export default function CrudFormAccessApp({ table, initialData, onSuccess }: Pro
     <Box component="form" onSubmit={handleSubmit} sx={{ display: 'flex', gap: 2, flexWrap: 'wrap', mt: 2 }}>
       
       {formData.id ? 
-         <></>
+         <TextField
+         name="fecha_solicitud"
+         type="text"
+         value={formData.fecha_solicitud}
+         onChange={handleChange}
+         fullWidth
+         disabled
+         required/>
        : 
-       <TextField
-       name="fecha_solicitud"
-       type="date"
-       value={formData.fecha_solicitud}
-       onChange={handleChange}
-       fullWidth
-       required/>}
+       <></>}
       
 
       <FormControl fullWidth>

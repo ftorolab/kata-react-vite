@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import {
-  TextField, Button, Box, MenuItem, Select, InputLabel, FormControl, Switch,
-  FormControlLabel
+  TextField, Button, Box
 } from '@mui/material';
 import {api} from '../../services/api';
 
